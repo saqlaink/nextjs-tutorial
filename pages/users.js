@@ -1,30 +1,30 @@
-import User from "../components/user";
+import User from '../components/user'
 
-function UsersList({ users }) {
+function UserList({ users }) {
   return (
     <>
       <h1>List of users</h1>
-      {users.map((user) => {
+      {users.map(user => {
         return (
           <div key={user.id}>
             <User user={user} />
           </div>
-        );
+        )
       })}
     </>
-  );
+  )
 }
 
-export default UsersList;
+export default UserList
 
 export async function getStaticProps() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await response.json();
-  console.log(data);
+  const response = await fetch('https://jsonplaceholder.typicode.com/users')
+  const data = await response.json()
+  //   console.log(data)
 
   return {
     props: {
-      users: data,
-    },
-  };
+      users: data
+    }
+  }
 }
